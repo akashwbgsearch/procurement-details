@@ -1,0 +1,158 @@
+<section id="overview">
+	<div class="row full-row-gray-components" style="padding: 32px 0px 32px 0px;">
+		<div class="container">
+		
+		<div class="row">
+			<div class="heading-v1">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<h2>{{Overview}}</h2>
+				</div>
+			</div><!-- End heading-v1 -->
+		</div>
+			<div class="row">
+				<div class="col-md-12 col-xs-12">
+	<div class="detail-download-section">
+		<div class="header-detail">
+			<h4>{{Noticeataglance}}</h4>
+		</div>
+		<div *ngFor="let lst of list" class="main-detail" >
+			<ul class="row">
+				<li class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+					<label>{{ProjectID}}</label>
+					<p class="document-info">{{lst.project_id}}</p>
+				</li>
+				<li class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+					<label>{{ProjectTitle}}</label>
+					<p class="document-info">{{lst.project_name}}</p>
+				</li>
+				<li class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+					<label>{{Country}}</label>
+					<p class="document-info">{{lst.project_ctry_name}}</p>
+				</li>
+				<li class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+					<label>{{NoticeNo}}</label>
+					<p class="document-info">{{lst.id}}</p>
+				</li>
+			</ul>
+			<ul class="row">
+				<li class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+					<label>{{NoticeType}}</label>
+					<p class="document-info">{{lst.notice_type}}</p>
+				</li>
+				<li class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+					<label>{{NoticeStatus}}</label>
+					<p class="document-info">{{lst.notice_status}}</p>
+				</li>
+				<li class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+					<label>{{BorrowerBidReference}}</label>
+					<p class="document-info">{{lst.bid_reference_no}}</p>
+				</li>
+				<li class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+					<label>{{ProcurementMethod}}</label>
+					<p class="document-info">{{lst.procurement_method_name | empty : locale}}</p>
+				</li>
+			</ul>
+			<ul class="row">
+				<li class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+					<label>{{LanguageofNotice}}</label>
+					<p class="document-info">{{lst.notice_lang_name}}</p>
+				</li>
+				<li class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+					<label>{{SubmissionDeadlineDateTime}}</label>
+					<p class="document-info">{{lst.submission_deadline_date | dateFormatPipe: 'en'}} {{lst.submission_deadline_time}}</p>
+				</li>
+				<li class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+					<label>{{PublishedDate}}</label>
+					<p class="document-info">{{lst.submission_date | dateFormatPipe: 'en'}}</p>
+				</li>					
+			</ul>				
+		</div>
+	</div>
+
+	<div class="detail-download-section" *ngIf="list[0].notice_type !=='Contract Award'">
+		<div class="header-detail">
+			<h4>{{CONTACTINFORMATION}}</h4>
+		</div>
+		<div *ngFor="let lst of list" class="main-detail">
+			<ul class="row" *ngIf="lst.notice_type !=='Contract Award'">
+				<li class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+					<label>{{OrganizationDepartment}}</label>
+					<p class="document-info">{{lst.contact_organization}}</p>
+				</li>
+				<li class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+					<label>{{Name}}</label>
+					<p class="document-info">{{lst.contact_name}}</p>
+				</li>
+				<li class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+					<label>{{Address}}</label>
+					<p class="document-info">{{lst.contact_address}}</p>
+				</li>
+				<li class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+					<label>{{City}}</label>
+					<p class="document-info">{{lst.contact_city}}</p>
+				</li>
+			</ul>
+			<ul class="row" *ngIf="lst.notice_type !=='Contract Award'">
+				<li class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+					<label>{{ProvinceState}}</label>
+					<p class="document-info">{{lst.project_ctry_name}}</p>
+				</li>
+				<li class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+					<label>{{PostalCode}}</label>
+					<p class="document-info">{{lst.contact_postal_code}}</p>
+				</li>
+				<li class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+					<label>{{Country}}</label>
+					<p class="document-info">{{lst.project_ctry_name}}</p>
+				</li>
+				<li class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+					<label>{{Phone}}</label>
+					<p class="document-info">{{lst.contact_phone_no}}</p>
+				</li>
+			</ul>
+			<ul class="row" *ngIf="lst.notice_type !=='Contract Award'">
+				<li class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+					<label>{{Email}}</label>
+					<p class="document-info"><a title="Mail to:{{lst.contact_email}}" href="mailto:{{lst.contact_email}}">{{lst.contact_email}}</a></p>
+				</li>
+				<li class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+					<label>{{Website}}</label>
+					<p class="document-info">{{lst.contact_web_url}}</p>
+				</li>
+			</ul>
+			
+		</div>
+	</div>
+				</div>
+			</div>
+		
+	</div>
+	</div>
+	</section>
+
+	<section id="overview">
+			<div class="row full-row-white-components" style="padding: 32px 0px 32px 0px; margin-right: 15px; margin-left: 15px;">
+				<div class="container">
+				
+				<div class="row">
+					<div class="heading-v1">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<h2>{{Details}}</h2>
+						</div>
+					</div><!-- End heading-v1 -->
+				</div>
+					<div class="row">
+						<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12"></div>
+						<div class="col-md-8 col-xs-12">
+			<div class="redesign_static_content section">
+			<section class="c14v1-body c14v1-body-text flipboard-keep ">
+					<div [innerHTML]=list[0].notice_text></div>
+			</section>
+			</div>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12"></div>
+					</div>
+				
+			</div>
+			</div>
+			</section>
